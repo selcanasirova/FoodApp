@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.selcanasirova.foodapp.ui.fragments.page.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_randomMealDetailFragment"
+            app:destination="@id/randomMealDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_mealCategoryFragment"
+            app:destination="@id/mealCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.selcanasirova.foodapp.ui.fragments.page.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" />
+    <fragment
+        android:id="@+id/randomMealDetailFragment"
+        android:name="com.selcanasirova.foodapp.ui.fragments.details.RandomMealDetailFragment"
+        android:label="fragment_random_meal_detail"
+        tools:layout="@layout/fragment_random_meal_detail" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.selcanasirova.foodapp.ui.fragments.page.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/mealCategoryFragment"
+        android:name="com.selcanasirova.foodapp.ui.fragments.MealCategoryFragment"
+        android:label="fragment_meal_category"
+        tools:layout="@layout/fragment_meal_category" >
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
+</navigation>
