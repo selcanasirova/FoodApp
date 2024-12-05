@@ -23,7 +23,7 @@ class RandomMealDetailFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentRandomMealDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -31,8 +31,6 @@ class RandomMealDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mealMvvm = ViewModelProvider(this@RandomMealDetailFragment)[MealViewModel::class.java]
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,6 +42,7 @@ class RandomMealDetailFragment : Fragment() {
     }
 
     private fun observedRandomMeal() {
+
         mealMvvm.observeMealDetailsLiveData().observe(viewLifecycleOwner) { value ->
             Glide.with(requireContext()).load(value.strMealThumb).placeholder(R.color.g_black)
                 .into(binding.imgMealDetail)
@@ -53,6 +52,7 @@ class RandomMealDetailFragment : Fragment() {
                 mealText.text = value.strInstructions
             }
         }
+
     }
 
     override fun onDestroyView() {
